@@ -1,4 +1,4 @@
-#include "initializers.c"
+#include "../mesFonctions.h"
 
 void fillSymbolLib(Automaton *newAutomaton, char *sym)
 {

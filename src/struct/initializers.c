@@ -1,4 +1,4 @@
-#include "structures.c"
+#include "../mesFonctions.h"
 
 /* Automaton initializer */
 Automaton *automatonInitializer()

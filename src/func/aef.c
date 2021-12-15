@@ -1,4 +1,8 @@
-#include "generators.c"
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include "../mesFonctions.h"
 
 void assistedEntryMode()
 {
@@ -109,7 +113,7 @@ void recByAEF(Automaton *newAutomaton, char *word)
 
 void questionsAnswer(Automaton *newAutomaton)
 {
-  screanCleaner();
+  // screanCleaner();
   printf("_________________\n");
   printf("Questions Answer \n");
   printf("-----------------\n");

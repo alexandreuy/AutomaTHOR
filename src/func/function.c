@@ -5,8 +5,6 @@
 #include <stdbool.h>
 #include "../mesFonctions.h"
 
-#define true 1
-#define false 0
 
 
 char *puis() {
@@ -36,17 +34,16 @@ char *puis() {
 
 }
 
-// bool vide() {
-//     // word = remove_white_spaces(word);
+bool vide() { // à revoir
+    // word = remove_white_spaces(word);
 
-//     char str[100];
-//     printf("\t Choisir un mot :\n");
-//     fgets(str, 100, stdin);
+    char str[100];
+    printf("\t Choisir un mot :\n");
+    fgets(str, 100, stdin);
 
+    return false;
 
-//     return false;
-
-// }
+}
 
 char *concat(){
     printf("\tChoisissez un premier mot:\n");
