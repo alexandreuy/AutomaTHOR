@@ -6,7 +6,6 @@
 #include "../mesFonctions.h"
 
 
-
 char *puis() {
 
     int exponent;
