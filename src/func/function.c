@@ -6,6 +6,39 @@
 #include "../mesFonctions.h"
 
 
+int appartient(){
+    char *string = (char *) malloc(strlen(string));
+    char *alphabet = (char *) malloc(strlen(alphabet));
+
+    printf("Enter string\n");
+    scanf("%s", string);
+
+    printf("Enter your alphabet\n");
+    scanf("%s", alphabet);
+
+
+    bool answer;
+    char *compteurdepresence = (char *) malloc(40);
+    for (int k =0; k<strlen(string); k++){
+        for(int i = 0; i<strlen(alphabet); i++){
+            if (string[k]==alphabet[i])
+            {   
+                compteurdepresence[k]= 1;                
+            }else if(compteurdepresence[k]!=1){
+                compteurdepresence[k]=0;
+            }
+        }
+    }
+    for (int i = 0; i < strlen(string); i++)
+    {
+        if(compteurdepresence[i]==0)
+            return 0;
+        else
+            answer= 1;
+    }
+    if(answer==1)
+        return answer;
+}
 
 char *puis() {
 
@@ -34,14 +67,16 @@ char *puis() {
 
 }
 
-bool vide() { // à revoir
-    // word = remove_white_spaces(word);
+bool vide() { 
 
-    char str[100];
+    char *word1 = (char *) malloc(strlen(word1));
     printf("\t Choisir un mot :\n");
-    fgets(str, 100, stdin);
+    scanf("%s[^\n]", word1);
 
-    return false;
+    
+    if(word1[0] != '\0') return false;
+
+    return true;
 
 }
 
