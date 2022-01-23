@@ -58,7 +58,7 @@ Automaton *dataCharge()
 
   // Transition Symbol c
   newTransition = transitionsInitializer();
-  newTransition->symbol = "c";
+  newTransition->symbol = "a";
   newTransition->leftState = newState;
 
   newTransition->nextState = newState;
@@ -66,7 +66,7 @@ Automaton *dataCharge()
 
   // Transition Symbol z
   newTransition = transitionsInitializer();
-  newTransition->symbol = "z";
+  newTransition->symbol = "c";
   newTransition->leftState = newState;
 
   newTransition->nextState = newState;
@@ -76,6 +76,7 @@ Automaton *dataCharge()
   newTransition = transitionsInitializer();
   newTransition->symbol = "c";
   newTransition->leftState = newState;
+
 
   // State D
   newState = stateInitializer();
@@ -129,14 +130,14 @@ Automaton *dataCharge()
   //         );
   // }
 
-  for (int i = 0; i < newAutomaton->numOfTransitions ; i++)
-  {
-    printf("\n[ %s ] . %s . [ %s ]",
-           newAutomaton->transitions[i]->leftState->name,
-           newAutomaton->transitions[i]->symbol,
-           newAutomaton->transitions[i]->nextState->name
-          );
-  }
+  // for (int i = 0; i < newAutomaton->numOfTransitions ; i++)
+  // {
+  //   printf("\n[ %s ] . %s . [ %s ]",
+  //          newAutomaton->transitions[i]->leftState->name,
+  //          newAutomaton->transitions[i]->symbol,
+  //          newAutomaton->transitions[i]->nextState->name
+  //         );
+  // }
 
   //  printf("\n%ld",(sizeof(newAutomaton->transitions) / sizeof(long)) + 1 );
 

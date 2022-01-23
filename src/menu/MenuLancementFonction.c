@@ -8,21 +8,33 @@ void launchFunction(int choice){
     system("clear");
     switch(choice){
         case 1:
-            printf("\tVous avez choisi Manipuler mot d'un alphabet\n");
+            printf("\tYou choose play with alphabet\n");
+            printf("\t________________________________\n");
+            printf("\t________________________________\n");            
             printf("\n");
             launchAlphabetFunction(alphabet_displayMenu());
         break;
         case 2:
-            printf("\tVous avez choisi de jouer avec les AEF\n");
+            printf("\tYou choose play with AEF\n");
+            printf("\t________________________________\n");
+            printf("\t________________________________\n");
             printf("\n");
             launchAEFFunction(aef_displayMenu());
         break;
+        case 3 :
+            printf("\tYou choose play with regex\n");
+            printf("\t________________________________\n");
+            printf("\t________________________________\n");
+            printf("\n");
+            MenuSelector(regExMenu());
+
+        break;
         case 4:
-            printf("\tAu revoir et à bientôt sur AutomaTHOR !\n");
+            printf("\n \t See you soon on AutomaTHOR !\n");
             return;
         break;
         default:
-            printf("\t Nous avons pas compris votre choix... Réessayez\n");
+            printf("\t Please retry... with a valid choice\n");
             printf("\n");
             launchFunction(principal_displayMenu());
 
@@ -35,32 +47,32 @@ void launchAlphabetFunction(int choice){
     system("clear");
     switch(choice){
         case 1:
-            // TO DO
-            // Waiting for JB code ..
+            printf("\tYou choose Calculer la puissance d'un mot\n");
+            printf("%d\n", appartient());
         break;
         case 2:
-            printf("\tVous avez choisi Calculer la puissance d'un mot\n");
+            printf("\tYou choose Calculer la puissance d'un mot\n");
             printf("%s\n", puis());
 
         break;
 
         case 3:
-            printf("\tVous avez choisi Vérifier si un mot est vide\n");
+            printf("\tYou choose Vérifier si un mot est vide\n");
             printf("%d\n", vide());
         break;
 
         case 4: 
-            printf("\tVous avez choisi de concaténer deux mots\n");
+            printf("\tYou choose de concaténer deux mots\n");
             printf("%s\n", concat());
         break;
 
         case 5:
-            printf("\tVous avez choisi de calculer le mirroir d'un mot\n");
+            printf("\tYou choose de calculer le mirroir d'un mot\n");
             printf("%s\n", miroir());
         break;
 
         case 6:
-            printf("\tVous avez choisi de vérifier si un mot est fini\n");
+            printf("\tYou choose vérifier si un mot est fini\n");
             printf("%d\n", estFini());
         break;
     
@@ -69,7 +81,7 @@ void launchAlphabetFunction(int choice){
         break;
 
         default:
-            printf("\tNous avons pas compris votre choix... Réessayez\n");
+            printf("\t Please retry... with a valid choice\n");            
             printf("\n");
             launchAlphabetFunction(alphabet_displayMenu());
             
@@ -81,26 +93,31 @@ void launchAlphabetFunction(int choice){
 
 void launchAEFFunction(int choice)
 {
+    system("clear");              // clear the windows command line
+
     switch (choice)
     {
     case 1:
         system("clear");                 // clear the windows command line
-        printf("Assisted Entry Mode\n"); // Print choosen mode
+        printf("\tAssisted Entry Mode\n"); // Print choosen mode
         assistedEntryMode();             // load the assisted mode entry function
         break;
     case 2:
         system("clear");                      // clear the windows command line
-        printf("Semi-Assisted Entry Mode\n"); // Print choosen mode
+        printf("\tSemi-Assisted Entry Mode\n"); // Print choosen mode
         break;
     case 3:
         system("clear");             // clear the windows command line
-        printf("Self-Entry Mode\n"); // Print choosen mode
+        printf("\tSelf-Entry Mode\n"); // Print choosen mode
         break;
     case 4:
         system("clear");              // clear the windows command line
-        printf("File Import Mode\n"); // Print choosen mode
+        printf("\tFile Import Mode\n"); // Print choosen mode
     case 5:
         // dataCharge();
+        system("clear");
+        printf("Back");
+        launchFunction(principal_displayMenu());
         break;
     }
 }

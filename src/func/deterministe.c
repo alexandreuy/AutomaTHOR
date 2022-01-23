@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include "../mesFonctions.h"
 
+// Verify if there are same symbols transition for a state
 bool doublonVerification(Transition **tabTransition, char *name, int numberOfTransitions)
 {
     char **tab = malloc(100);
@@ -22,18 +23,8 @@ bool doublonVerification(Transition **tabTransition, char *name, int numberOfTra
     return false;
 }
 
-int numberOfInitialState(Automaton *automaton)
-{
-    int count = 0;
 
-    for (int i = 0; i < automaton->numOfStates; i++)
-    {
-        if(automaton->states[i]->isInitial) count+=1;
-         
-    }
-    return count;
-}
-
+// verify if an AEF is determinist
 bool isDeterminist(Automaton *automaton)
 {
     if (numberOfInitialState(automaton) > 1)
@@ -51,36 +42,58 @@ bool isDeterminist(Automaton *automaton)
 }
 
 
-// bool deterministe(Automaton *newAutomaton){
-//     // renvoie faux si non déterministe et true si déterministe 
-//     char * transition[100]; 
-//     int answer; 
-//     for(int k=0; k<newAutomaton->numOfTransitions; k++){ 
-//         newAutomaton->transitions[k]->symbol=transition[k];
+// get the position on the state tab of the initial state
+int getPositionInitState(State** states, int numOfStates)
+{
 
-//         printf("\n%s", transition[k]);
-//     }
+    for(int i = 0; i < numOfStates; i++){
+        if(*&(states[i]->isInitial)) return i;
+    }
 
-//     for(int q =1; q<newAutomaton->numOfTransitions;q++){
-//         for(int i=1; i<newAutomaton->numOfTransitions; i++){
-//             //                  même symbole                                                       transition d'un même point de départ
-//             if(newAutomaton->transitions[q]->symbol==newAutomaton->transitions[i]->symbol  && newAutomaton->transitions[q]->leftState==newAutomaton->transitions[i]->leftState){
-//                 //printf("C'est un automate non -déterministe \n");
-//                 return true;
-//             }
-//             else{
-//                 //printf("C'est un automate déterministe \n");
-//                 answer=1;
-//             }
-//         }
-//     }
-//     if(answer==1){
-//         return false;
-//     }
-// }
+    return 0;
+}
+
+// Not working yet
+Automaton* makeItDeterminist(Automaton* automate){
+    
+    Automaton *newAutomaton = automatonInitializer();
+    newAutomaton->name = "Determinist";
+
+    int positionInitState = getPositionInitState(automate->states, automate->numOfStates);
+
+    // Création de l'état initial
+    State *newState = stateInitializer();
+    newState->name = automate->states[positionInitState]->name;
+    newState->isInitial = automate->states[positionInitState]->isInitial;
+    newState->isFinal = automate->states[positionInitState]->isFinal;
+    newAutomaton->states[newAutomaton->numOfStates] = automate->states[positionInitState];
+    newAutomaton->numOfStates = newAutomaton->numOfStates++;
+    
+
+    // for(int i = 0; i < automate->numOfStates;i++){
+    //     char** transitionsSymbols = getTransitionOfState(automate->transitions, "C", automate->numOfTransitions);
+    //     for(int j = 0; j < getSizeOfTab(transitionsSymbols); j++){
+    //         for(int k = 0; k < automate->numOfTransitions; k++){
+    //             if(strcmp(*&(transitionsSymbols[j]), automate->transitions[k]->symbol) == 0 && automate->transitions[k]->leftState->name == "C"){
+    //                 printf("\n[ %s ] . %s . [ %s ]",
+    //                 automate->transitions[k]->leftState->name,
+    //                 automate->transitions[k]->symbol,
+    //                 automate->transitions[k]->nextState->name
+    //                 );      
+    //             }
+    //         }
+    //     }
+    // }
+
+
+
+    return newAutomaton;
+    
+}
 
 // void main()
 // {
+//     makeItDeterminist(dataCharge());
 
-//     printf("\nDeterministe : %d\n", deterministe(dataCharge()));
+//     // printf("\nDeterministe : %d\n", isDeterminist(dataCharge()));
 // }
