@@ -41,6 +41,7 @@ Automaton *automatonMaker();
 Automaton *dataCharge();
 
 // File -- Still working on it
+void writecsv(Automaton *newAutomaton);
 Automaton* modifier(Automaton* newAutomaton);
 void changename(Automaton* newAutomaton);
 void modifnbetats(Automaton *newAutomaton);
@@ -56,6 +57,7 @@ void affichageteststates(Automaton *newAutomaton);
 void affectationsymbol(Automaton *newAutomaton, char* listessymbole);
 void affectotransition(Automaton *newAutomaton,char *token, int numbinitstate, int numbfinalstate, char * listfinalstate, char* listinitstate);
 void createstatetotransition(Automaton * newAutomaton, Transition *newTransition, char *namestate, int choix , int numbinitstate, int numbfinalstate, char * listfinalstate, char* listinitstate);
+
 
 
 

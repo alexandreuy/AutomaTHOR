@@ -185,6 +185,7 @@ void changetransition(Automaton *newAutomate){  /////////////des prob dans la fo
    newstateleft->name = leftstate;
    newnextstate->name = nextstate;
    newAutomate->transitions[choix]->symbol = symbol;
+   newAutomate->symbols[choix] =symbol;
    
    for(int t =1; t<newAutomate->numOfStates+1; t++){
        if(newstateleft->name==newAutomate->states[t]->name && newAutomate->states[t]->isInitial == true){
@@ -200,7 +201,27 @@ void changetransition(Automaton *newAutomate){  /////////////des prob dans la fo
            newnextstate->isFinal=true;
        }
        
-   }/*                  ///A VERIFIER LA PERTINENCE
+   } 
+    int verif=0;
+    int verif1=0;
+   for (int i = 1; i < newAutomate->numOfStates+1; i++)
+   {    printf("%c , %c , vérif : %d \n",newstateleft->name,newAutomate->states[i]->name, verif);
+       if(strcmp(&newstateleft->name,&newAutomate->states[i]->name)==0){
+           verif=1;
+       }
+       if(strcmp(&newnextstate->name,&newAutomate->states[i]->name)==0){
+           verif1=1;
+       }
+   }
+   if(verif!=1 || verif1!=1){        ///vérification existence de l'état
+    printf("Impossible d'associer une transition à un état inexistant, veuillez crer l'etat avant.\n");
+    newAutomate->transitions[choix]->symbol = symbol;
+    newAutomate->symbols[choix] =symbol;
+    modifier(newAutomate);
+    verif=0;
+   }
+   
+     /*              ///A VERIFIER LA PERTINENCE
    int verif=0;
    for (int i = 1; i < newAutomate->numOfStates+1; i++)
    {
@@ -223,7 +244,7 @@ void changetransition(Automaton *newAutomate){  /////////////des prob dans la fo
     newAutomate->numOfStates=newAutomate->numOfStates+1;
     newAutomate->states[newAutomate->numOfStates]=newnextstate;
     verif=0;
-   }*/                                              //A VERIFIER LA PERTINENCE
+   }*/                                 //A VERIFIER LA PERTINENCE
    
     newAutomate->transitions[choix]->leftState = newstateleft;
     newAutomate->transitions[choix]->nextState = newnextstate;
@@ -231,3 +252,8 @@ void changetransition(Automaton *newAutomate){  /////////////des prob dans la fo
 
     modifier(newAutomate);
 }
+
+
+///ajouter etat
+///ajouter transition
+//update symbol selon nouvelle transition
