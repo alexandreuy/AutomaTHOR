@@ -40,6 +40,25 @@ Automaton *automatonMaker();
 // Template
 Automaton *dataCharge();
 
+// File -- Still working on it
+Automaton* modifier(Automaton* newAutomaton);
+void changename(Automaton* newAutomaton);
+void modifnbetats(Automaton *newAutomaton);
+void modifnbtrans(Automaton *newAutomaton);
+void modifnbsymbol(Automaton *newAutomaton);
+void modifstates(Automaton *newAutomaton);
+void affichagetransition(Automaton *newAutomate);
+void changetransition(Automaton *newAutomate);
+Automaton *importcsv();
+void Suiteprocess(Automaton *newAutomaton);
+void affectationstate(Automaton *newAutomaton, char* listetat, int numbinistate, char *listinitstate, int numbfinalstate, char *listfinalstate);
+void affichageteststates(Automaton *newAutomaton);
+void affectationsymbol(Automaton *newAutomaton, char* listessymbole);
+void affectotransition(Automaton *newAutomaton,char *token, int numbinitstate, int numbfinalstate, char * listfinalstate, char* listinitstate);
+void createstatetotransition(Automaton * newAutomaton, Transition *newTransition, char *namestate, int choix , int numbinitstate, int numbfinalstate, char * listfinalstate, char* listinitstate);
+
+
+
 // Enter an AEF
 void assistedEntryMode();
 bool isInAFinalTransition(Automaton *newAutomaton, char *yourWord);
